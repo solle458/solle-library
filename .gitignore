@@ -66,3 +66,7 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# competitive-verifier
+result.json
+verify_files.json 
