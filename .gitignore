@@ -70,3 +70,5 @@ Testing/
 # competitive-verifier
 result.json
 verify_files.json 
+.competitive-verifier/bundled/
+.competitive-verifier/cache/

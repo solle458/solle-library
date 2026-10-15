@@ -1,9 +1,9 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
 #include <iostream>
 
-using namespase std;
+using namespace std;
 
-#include "../../../data-structure/binary-indexed-tree.hpp"
+#include "data-structure/binary-indexed-tree.hpp"
 
 int main(){
     int n, q;
