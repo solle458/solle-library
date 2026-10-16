@@ -5,7 +5,7 @@ using namespace std;
 
 #include "data-structure/binary-indexed-tree.hpp"
 
-int main(){
+void solve(){
     int n, q;
     cin >> n >> q;
     vector<long long> a(n);
@@ -23,4 +23,11 @@ int main(){
             ft.add(p, x);
         }
     }
+}
+
+int main(){
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	solve();
+	return 0;
 }
