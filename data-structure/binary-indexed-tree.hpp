@@ -4,7 +4,6 @@
 
 using namespace std;
 
-/* -- library code --*/
 template <typename T>
 class BIT{
   private:
@@ -70,4 +69,3 @@ class BIT{
         }
     }
 };
-/* -- library code --*/
