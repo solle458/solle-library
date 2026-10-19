@@ -1,35 +1,32 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-struct Edge{
-    int from, to;
-    long long cost;
+struct Edge {
+  int to;
+  long long cost;
+  Edge() = default;
+  Edge(int t, long long c = 1) : to(t), cost(c) {}
 };
 
-class Graph{
+class Graph {
   private:
-    int size_;
-    vector<Edge> g_;
+    int n;
+    vector<vector<Edge>> g;
   public:
     Graph() = default;
-    Graph(int size) : size_(size) {}
-    void add_edge(int idx, Edge &e)g_[e.from].emplace_back(e);
-    void add_edge(int idx, int from, int to)g_[from].emplace_back(from, to);
-    istream &operator>>(istream &in){
-        int from, to;
-        long long cost
-        in >> from >> to >> cost;
-        g_[from].emplace_back(from, to, cost);
+    explicit Graph(int n_) : n(n_), g(n_) {}
+    void add_edge(int from, int to, long long cost = 1) {
+        g[from].emplace_back(to, cost);
     }
-    ostream &operator<<(ostream &out){
-        for(auto &e : g_){
-            for(auto &[f, t, c] : e)out << t << " ";
-            out << endl;
-        }
+    void add_undirected(int u, int v, long long cost = 1) {
+        add_edge(u, v, cost);
+        add_edge(v, u, cost);
     }
-    Edge &operator[](int idx) return g_[i];
-}
+    vector<Edge>& operator[](int i) { return g[i]; }
+};
 
 using G = Graph;
