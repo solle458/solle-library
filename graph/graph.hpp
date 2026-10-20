@@ -1,9 +1,6 @@
 #pragma once
 
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 struct Edge {
   int to;
@@ -15,10 +12,12 @@ struct Edge {
 class Graph {
   private:
     int n;
-    vector<vector<Edge>> g;
+    std::vector<std::vector<Edge>> g;
   public:
     Graph() = default;
     explicit Graph(int n_) : n(n_), g(n_) {}
+    int size() { return n; }
+    int size() const { return n; }
     void add_edge(int from, int to, long long cost = 1) {
         g[from].emplace_back(to, cost);
     }
@@ -26,7 +25,8 @@ class Graph {
         add_edge(u, v, cost);
         add_edge(v, u, cost);
     }
-    vector<Edge>& operator[](int i) { return g[i]; }
+    std::vector<Edge> operator[](int i) const { return g[i]; }
+    std::vector<Edge> &operator[](int i) { return g[i]; }
 };
 
 using G = Graph;

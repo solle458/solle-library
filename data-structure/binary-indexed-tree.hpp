@@ -3,15 +3,13 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 template <typename T>
 class BIT{
   private:
     int size_;
-    vector<T> data_;
+    std::vector<T> data_;
 
-    void build(vector<T> &data){
+    void build(std::vector<T> &data){
         for(int i = 0; i < (int)data.size(); i++){
             add(i, data[i]);
         }
@@ -20,7 +18,7 @@ class BIT{
   public:
     BIT() = default;
     BIT(int size) : size_(size+1) { data_.assign(size_, T{}); }
-    BIT(vector<T> data) {
+    BIT(std::vector<T> data) {
         size_ = (int)data.size() + 1; // 1-index
         data_.assign(size_, T{});
         build(data);
@@ -30,7 +28,7 @@ class BIT{
         for(int i = idx+1; i < size_; i += (i & -i)) data_[i] += x;
     }
     T sum(int l, int r){
-        assert(l <= r);
+        std::assert(l <= r);
         return sum(r-1) - sum(l-1);
     }
     T sum(int idx){
