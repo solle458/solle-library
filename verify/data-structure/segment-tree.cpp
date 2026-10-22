@@ -1,0 +1,33 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
+#include <iostream>
+
+#include "data-structure/segment-tree.hpp"
+
+using namespace std;
+
+void solve(){
+    int n, q;
+    cin >> n >> q;
+    vector<long long> a(n);
+    for(auto &i : a)cin >> i;
+    RangeSum seg(a);
+    while(q--){
+        int t, p, x, l, r;
+        cin >> t;
+        if(t){
+            cin >> l >> r;
+            cout << seg.prod(l, r) << endl;
+        }else{
+            cin >> p >> x;
+            seg.set(p, seg.get(p) + x);
+        } 
+    }
+}
+
+int main(){
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	solve();
+	return 0;
+}
+

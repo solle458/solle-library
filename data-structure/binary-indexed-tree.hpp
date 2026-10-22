@@ -28,7 +28,7 @@ class BIT{
         for(int i = idx+1; i < size_; i += (i & -i)) data_[i] += x;
     }
     T sum(int l, int r){
-        std::assert(l <= r);
+        assert(l <= r);
         return sum(r-1) - sum(l-1);
     }
     T sum(int idx){
